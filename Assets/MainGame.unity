@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 1011585819}
   - component: {fileID: 1011585818}
   - component: {fileID: 1011585817}
+  - component: {fileID: 1011585821}
   - component: {fileID: 1011585820}
   m_Layer: 0
   m_Name: Main Camera
@@ -552,18 +553,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1011585816}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca16289f621c94c4f975351a25d25c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle_2: {fileID: 608120007}
+  Obstacle_3: {fileID: 1420618414}
+  CheckSpawnRate: 0
+--- !u!114 &1011585821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011585816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4ea3c12268009c4f913a7e6029b9b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1024592277}
   - {fileID: 593112139}
-  - {fileID: 1569958082}
-  - {fileID: 22627994}
-  - {fileID: 608120007}
-  - {fileID: 1420618414}
-  choke: 0
-  scrollSpeed: 0
+  choke: 1
+  scrollSpeed: 2
 --- !u!1 &1024592277
 GameObject:
   m_ObjectHideFlags: 0

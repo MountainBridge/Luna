@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
 {
-    // Make sure to assign this in the inspector so it knows what the coin should be.
+    // Make sure to assign this in the inspector so it knows what the obstacle should be.
+    public GameObject Obstacle_2;
     public GameObject Obstacle_3;
     //Change this in the inspector to determine how often it should try to spawn the coin.
     public float CheckSpawnRate;
@@ -23,11 +24,11 @@ public class GroundDetector : MonoBehaviour
         countDown -= 1f * Time.deltaTime;
         if (countDown <= 0f)
         {
-            RandomCoin();
+            RandomObstacle();
             countDown = CheckSpawnRate;
         }
     }
-    public void RandomCoin()
+    public void RandomObstacle()
     {
         //Check the "1" From 1 to any other number and that will determine how likely it is to spawn a coin.
 
@@ -43,6 +44,7 @@ public class GroundDetector : MonoBehaviour
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit");
             }
+            Instantiate(Obstacle_2, coinPos, Quaternion.identity);
             Instantiate(Obstacle_3, coinPos, Quaternion.identity);
         }
     }
