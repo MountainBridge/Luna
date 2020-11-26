@@ -6,7 +6,12 @@ public class Astro : MonoBehaviour
 {
 
     //private Rigidbody2D rigidbody2D;
-    public float moveSpeed = 15f;
+    public float moveSpeed = 3f;
+    public float jumpHeight = 5f;
+    public float startTime;
+    public float jumpIncrement = 0f;
+    public float incrementDelta = 0.01f;
+    public float maxJumpHeight = 7f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +22,9 @@ public class Astro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();
-       // Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-       // transform.position += movement * Time.deltaTime * moveSpeed;
+        PowerJump();
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        transform.position += movement * Time.deltaTime * moveSpeed;
 
         /**
         if(Input.GetKeyDown(KeyCode.Space))
@@ -29,12 +34,24 @@ public class Astro : MonoBehaviour
         }**/
     }
 
-    void Jump()
+    void PowerJump()
     {
         if (Input.GetButtonDown("Jump"))
         {
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(2f, 5f), ForceMode2D.Impulse);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, 5, 5f), ForceMode2D.Impulse);
+            startTime = Time.time;
+        } 
+        if (Input.GetButton("Jump"))
+        {
+            jumpIncrement = (Time.time - startTime)*10f;
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            if(jumpIncrement > maxJumpHeight)
+            {
+                jumpIncrement = maxJumpHeight;
+            }
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, jumpHeight + jumpIncrement, 5f), ForceMode2D.Impulse);
+            jumpIncrement = 0f;
 
         }
     }
