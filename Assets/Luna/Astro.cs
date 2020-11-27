@@ -12,11 +12,15 @@ public class Astro : MonoBehaviour
     public float jumpIncrement = 0f;
     public float incrementDelta = 0.01f;
     public float maxJumpHeight = 7f;
+    public SpriteRenderer spriteRenderer;
+    public Sprite flyingAstroSprite;
+    public Sprite idleAstroSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -50,11 +54,19 @@ public class Astro : MonoBehaviour
             {
                 jumpIncrement = maxJumpHeight;
             }
+            spriteRenderer.sprite = flyingAstroSprite;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, jumpHeight + jumpIncrement, 5f), ForceMode2D.Impulse);
             jumpIncrement = 0f;
 
         }
     }
 
-    
+    // called when the astro hits an obstacle
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        spriteRenderer.sprite = idleAstroSprite;
+
+    }
+
+
 }

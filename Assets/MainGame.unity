@@ -887,3 +887,6 @@ MonoBehaviour:
   jumpIncrement: 0
   incrementDelta: 0.01
   maxJumpHeight: 7
+  spriteRenderer: {fileID: 0}
+  flyingAstroSprite: {fileID: 21300000, guid: 183229c8ad3fe274cbe931b8c31c2551, type: 3}
+  idleAstroSprite: {fileID: 21300000, guid: e4d9232d4be296347be937a0ae7957d3, type: 3}
