@@ -351,7 +351,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011585816}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4ea3c12268009c4f913a7e6029b9b58, type: 3}
   m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
   - {fileID: 1569958082}
   - {fileID: 593112139}
   choke: 1
-  scrollSpeed: 2
+  scrollSpeed: 1
 --- !u!114 &1011585822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boulderPrefab: {fileID: 7813001190127315468, guid: af40c7004412fd248b6e1bbc2fd46f54,
     type: 3}
-  respawnTime: 1.5
+  respawnTime: 5
 --- !u!1 &1569958082
 GameObject:
   m_ObjectHideFlags: 0

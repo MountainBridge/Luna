@@ -5,7 +5,7 @@ using UnityEngine;
 public class deployBoulders : MonoBehaviour
 {
     public GameObject boulderPrefab;
-    public float respawnTime = 1.0f;
+    public float respawnTime = 5f;
     private Vector2 screenBounds;
 
     // Use this for initialization
@@ -17,7 +17,7 @@ public class deployBoulders : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(boulderPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(0, screenBounds.x), screenBounds.y * 2);
+        a.transform.position = new Vector3(Random.Range(-2, screenBounds.x), -2, 0);
     }
     IEnumerator boulderWave()
     {
